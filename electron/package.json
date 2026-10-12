@@ -5,6 +5,10 @@
   "main": "dist-electron/electron/main.js",
   "author": "Bloom",
   "description": "Desktop EEG BDF/EDF analyzer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/niko-zvt/eeg-analyzer.git"
+  },
   "scripts": {
     "dev": "concurrently -k \"npm run dev:vite\" \"npm run dev:electron\"",
     "dev:vite": "vite",
@@ -12,10 +16,10 @@
     "build:electron": "tsc -p tsconfig.electron.json",
     "build": "vite build && npm run build:electron",
     "preview": "vite preview",
-    "dist": "npm run build && electron-builder",
-    "dist:mac": "npm run build && electron-builder --mac",
-    "dist:win": "npm run build && electron-builder --win",
-    "dist:linux": "npm run build && electron-builder --linux"
+    "dist": "npm run build && electron-builder --publish never",
+    "dist:mac": "npm run build && electron-builder --mac --publish never",
+    "dist:win": "npm run build && electron-builder --win --publish never",
+    "dist:linux": "npm run build && electron-builder --linux --publish never"
   },
   "dependencies": {
     "lucide-react": "^0.469.0",
@@ -40,6 +44,7 @@
   "build": {
     "appId": "com.bloom.eeg-bdf-analyzer",
     "productName": "EEG BDF Analyzer",
+    "publish": null,
     "directories": {
       "output": "release"
     },

@@ -63,7 +63,11 @@ jobs:
         with:
           name: eeg-analyzer-${{ matrix.artifact }}
           path: |
-            electron/release/**
+            electron/release/*.dmg
+            electron/release/*.zip
+            electron/release/*.blockmap
+            electron/release/*Setup*.exe
+            electron/release/*.AppImage
           if-no-files-found: error
 
   release:
@@ -79,7 +83,12 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: artifacts/**
+          files: |
+            artifacts/*.dmg
+            artifacts/*.zip
+            artifacts/*.blockmap
+            artifacts/*Setup*.exe
+            artifacts/*.AppImage
           draft: false
           generate_release_notes: true
         env:

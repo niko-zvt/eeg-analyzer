@@ -18,18 +18,25 @@ Desktop application for viewing and analyzing EEG recordings in **BDF** and **ED
 ## Requirements
 
 - Python 3.11+
-- Node.js 18+
+- Node.js 20+ (18+ may work for dev)
 - macOS / Windows / Linux
+
+### Python dependency files
+
+| File | When to use |
+|------|-------------|
+| [`requirements.txt`](requirements.txt) | **Runtime only** — enough to run the API (`npm run dev`, `uvicorn`). |
+| [`requirements-dev.txt`](requirements-dev.txt) | **Development + packaging** — includes runtime, Matplotlib for examples, and PyInstaller to build installers. |
 
 ## Installation
 
 ```bash
 cd /path/to/eeg-analyzer
 
-# Python backend
+# Python backend (full dev setup)
 python3.11 -m venv .venv
 source .venv/bin/activate   # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
+pip install -r requirements-dev.txt
 
 # Electron frontend
 cd electron
@@ -82,7 +89,7 @@ Zone markup is stored in `<recording_name>.zones.json` next to the recording fil
 
 ## Releases
 
-Pre-built installers for **macOS**, **Windows**, and **Linux** are published on [GitHub Releases](https://github.com/Bloom/eeg-analyzer/releases) when a version tag (`v*`) is pushed. CI builds:
+Pre-built installers for **macOS**, **Windows**, and **Linux** are published on **GitHub Releases** when a version tag (`v*`) is pushed. CI builds:
 
 | Platform | Artifacts |
 |----------|-----------|
@@ -107,7 +114,7 @@ Manual steps:
 
 ```bash
 # 1. Python backend bundle (PyInstaller onedir)
-pip install -r requirements.txt -r requirements-build.txt
+pip install -r requirements-dev.txt
 ./packaging/build_backend.sh
 
 # 2. Electron app

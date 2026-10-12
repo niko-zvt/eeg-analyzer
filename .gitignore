@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 .DS_Store
 .vscode/
+package-lock.json
 dist/
 build/
 *.egg-info/

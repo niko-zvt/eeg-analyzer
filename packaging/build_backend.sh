@@ -10,7 +10,7 @@ fi
 # shellcheck disable=SC1091
 source .venv/bin/activate
 
-pip install -q -r requirements.txt -r requirements-build.txt
+pip install -q -r requirements-dev.txt
 
 pyinstaller --noconfirm --clean \
   --distpath packaging/dist \

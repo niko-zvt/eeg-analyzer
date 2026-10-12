@@ -7,7 +7,7 @@ if (-not (Test-Path ".venv")) {
 }
 & .\.venv\Scripts\Activate.ps1
 
-pip install -q -r requirements.txt -r requirements-build.txt
+pip install -q -r requirements-dev.txt
 pyinstaller --noconfirm --clean `
   --distpath packaging/dist `
   --workpath packaging/build `

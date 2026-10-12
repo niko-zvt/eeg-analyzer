@@ -1,0 +1,8 @@
+# Local development and release packaging (install after requirements.txt)
+-r requirements.txt
+
+# Example scripts (Source/Example/)
+matplotlib>=3.8.0
+
+# Bundle Python backend for Electron (PyInstaller)
+pyinstaller>=6.0.0

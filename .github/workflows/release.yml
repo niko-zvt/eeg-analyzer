@@ -49,12 +49,9 @@ jobs:
           cache: npm
           cache-dependency-path: electron/package-lock.json
 
+      # Optional signing: set CSC_LINK and CSC_KEY_PASSWORD in repo secrets.
       - name: Build Electron installers
         shell: bash
-        env:
-          # Optional code signing (configure in repo secrets later):
-          # CSC_LINK: ${{ secrets.CSC_LINK }}
-          # CSC_KEY_PASSWORD: ${{ secrets.CSC_KEY_PASSWORD }}
         working-directory: electron
         run: |
           npm ci

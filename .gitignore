@@ -1,0 +1,26 @@
+.venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+.vscode/
+dist/
+build/
+*.egg-info/
+
+# Local recordings (do not commit patient data)
+Data/
+
+# Packaging outputs
+packaging/dist/
+packaging/build/
+
+electron/node_modules/
+electron/dist/
+electron/dist-electron/
+electron/release/
+
+*.dmg
+*.exe
+*.AppImage
+*.deb
+*.rpm

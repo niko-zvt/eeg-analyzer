@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  overscroll-behavior: none;
+  overscroll-behavior-x: none;
+}
+
+body {
+  overflow: hidden;
+  user-select: none;
+}
+
+:root {
+  color-scheme: dark;
+  --signal-color-main: #ffffff;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --signal-color-main: #000000;
+}
+
+input,
+textarea,
+select {
+  user-select: text;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #252525;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+@layer components {
+  .panel {
+    @apply rounded-lg border border-border bg-surface-raised;
+  }
+
+  .btn-icon {
+    @apply flex h-9 w-9 items-center justify-center rounded-md border border-border bg-surface-overlay text-gray-200 transition hover:bg-accent-muted hover:text-white;
+  }
+
+  .btn-icon-active {
+    @apply border-accent bg-accent-muted text-white;
+  }
+
+  .btn-icon-sm {
+    @apply flex h-7 w-7 items-center justify-center rounded-md border border-border bg-surface-overlay text-gray-200 transition hover:bg-accent-muted hover:text-white disabled:cursor-not-allowed disabled:opacity-40;
+  }
+
+  .btn-icon-sm-active {
+    @apply border-accent bg-accent-muted text-white;
+  }
+
+  .btn-primary {
+    @apply rounded-md bg-accent-muted px-3 py-1.5 text-sm font-medium text-white transition hover:bg-accent disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-secondary {
+    @apply rounded-md border border-border bg-surface-overlay px-3 py-1.5 text-sm text-gray-200 transition hover:bg-surface;
+  }
+
+  .input-field {
+    @apply w-full rounded-md border border-border bg-surface px-2.5 py-1.5 text-sm text-gray-100 outline-none focus:border-accent;
+  }
+
+  .table-compact th,
+  .table-compact td {
+    @apply border-b border-border/60 px-2 py-1.5 text-left text-xs;
+  }
+
+  .table-compact th {
+    @apply bg-surface font-medium text-muted;
+  }
+
+  .table-compact tr:nth-child(even) td {
+    @apply bg-surface/40;
+  }
+}
